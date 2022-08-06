@@ -19,7 +19,7 @@ export function createList(request, response) {
       cardList: []
     }
   
-    push(formData);
+    Lists.push(formData);
     
     return response.json({ 
       success: true,

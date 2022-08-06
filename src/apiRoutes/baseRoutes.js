@@ -9,7 +9,7 @@ router.get("/dashboard_lists", getAllLists);
 router.post("/create_list", createList);
 
 // Card Routes
-router.get("/create_card", createCard);
+router.post("/create_card", createCard);
 
 // export
 export { router };

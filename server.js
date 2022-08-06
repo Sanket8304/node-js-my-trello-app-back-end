@@ -20,12 +20,13 @@ const PORT = process.env.PORT;
 const app = express();
 
 // Routes
-app.use('/', router);
 
 // Indicate the Express.js that yo're using an additional plugin to trear parameters.
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(cors())
+
+app.use('/', router);
 
 app.listen(PORT, () => {
     console.log(`The Books API is running on: http://localhost:${PORT}.`);

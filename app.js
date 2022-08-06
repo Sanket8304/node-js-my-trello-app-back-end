@@ -21,25 +21,7 @@ app.get("/", (request, response) => {
 });
 
 // Static variable containing your books
-let Lists = [
-  {
-    id: 1,
-    title: "List 1",
-    isAddCard: false,
-    cardList: [
-      {
-        cardId: 1,
-        cardTitle: "Card 1",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "List 2",
-    isAddCard: false,
-    cardList: [],
-  },
-];
+let Lists = [];
 
 app.get("/dashboard_lists", (requset, response) => {
   response.send({ lists: Lists });
@@ -73,7 +55,7 @@ app.post("/create_list", (request, response) => {
 //add a card
 app.post("/create_card", (request, response) => {
   let listId = request.body.listId;
-  let cardTitle = request.body.cardName;
+  let cardTitle = request.body.cardTitle;
   let cardUuid = uuidv4();
 
   let card = {

@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "628a624e-762c-401f-aebf-fc9bc1f69c2a",
+		"name": "Mytrello Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Creat Dashboard List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3004/create_list",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"create_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Dashboard lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3004/dashboard_lists",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"dashboard_lists"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

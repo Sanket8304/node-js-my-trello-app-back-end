@@ -1,20 +1,15 @@
 import { Router } from 'express';
-import { getAllLists, createList } from '../controllers/listController';
-import { createCard } from '../controllers/cardController';
+import { getAllLists, createList } from '../controllers/listController.js';
+import { createCard } from '../controllers/cardController.js';
 
 const router = Router();
 
-
 // List Routes
-router.get("dashboard_lists", getAllLists);
-router.post("create_list", createList);
-
+router.get("/dashboard_lists", getAllLists);
+router.post("/create_list", createList);
 
 // Card Routes
 router.get("/create_card", createCard);
 
-
-
-
 // export
-export {router};
+export { router };

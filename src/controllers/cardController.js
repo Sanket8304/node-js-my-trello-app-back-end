@@ -1,7 +1,7 @@
 // Take database
-import Lists from "./../models/data";
+import {Lists} from "./../models/data.js";
 
-exports.createCard = (request, response) => {
+const createCard = (request, response) => {
     let listId = request.body.listId;
     let cardTitle = request.body.cardTitle;
     let cardUuid = uuidv4();
@@ -25,3 +25,5 @@ exports.createCard = (request, response) => {
       data: card
     });
   };
+
+  export { createCard };

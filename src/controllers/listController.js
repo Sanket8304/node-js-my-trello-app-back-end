@@ -1,5 +1,5 @@
 // Take database
-import Lists from "./../models/data";
+import {Lists} from "./../models/data.js";
 import { v4 as uuidv4 } from 'uuid';
 
 export function getAllLists(requset, response) {

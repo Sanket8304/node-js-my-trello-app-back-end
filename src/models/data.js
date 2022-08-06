@@ -2,4 +2,4 @@
 var Lists = [];
 
 
-exports.Lists;
+export {Lists};

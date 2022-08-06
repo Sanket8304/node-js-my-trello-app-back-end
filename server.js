@@ -4,7 +4,7 @@ import express, { response } from "express";
 import bodyParser from "body-parser";
 // import userRoutes from "./src/api-routes/baseRoutes"
 // const userRoutes = require('./routes/userRoutes');
-import router from "./src/apiRoutes/baseRoutes.js";
+import {router} from "./src/apiRoutes/baseRoutes.js";
 
 // Configure .env file for environment variables
 dotenv.config();

@@ -28,7 +28,7 @@ let Lists = [
     isAddCard: false,
     cardList: [
       {
-        id: 1,
+        cardId: 1,
         cardTitle: "Card 1",
       },
     ],
@@ -72,9 +72,28 @@ app.post("/create_list", (request, response) => {
 
 //add a card
 app.post("/create_card", (request, response) => {
-  const bookName = request.body.name;
+  let listId = request.body.listId;
+  let cardTitle = request.body.cardName;
+  let cardUuid = uuidv4();
 
-  return response.json({ success: true });
+  let card = {
+    cardId: cardUuid,
+    cardTitle: cardTitle,
+    cardData: {}
+}
+
+  Lists.map((item) => {
+    if(item.id === listId){
+      item.cardList.push(card)
+    }
+  })
+  
+  return response.json({ 
+    success: true,
+    status: 201,
+    message: `new card is created succesfully in list ${listId}`,
+    data: card
+  });
 });
 
 // delete a list

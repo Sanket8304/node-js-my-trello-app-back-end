@@ -5,11 +5,15 @@ dotenv.config();
 import express, { response } from "express";
 import bodyParser from "body-parser";
 
+import { v4 as uuidv4 } from 'uuid';
+
+
 const PORT = process.env.PORT;
 const app = express();
 
 // Indicate the Express.js that yo're using an additional plugin to trear parameters.
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 app.use(cors())
 
 app.get("/", (request, response) => {
@@ -41,15 +45,30 @@ app.get("/dashboard_lists", (requset, response) => {
   response.send({ lists: Lists });
 });
 
+
 // create a list
 app.post("/create_list", (request, response) => {
-  const bookName = request.body.name;
-  //Check if it contain the book?
-  if (Lists.includes(bookName)) return response.json({ sucess: false });
+  let listTitle = request.body.title;
 
-  Lists.push(bookName);
-  return response.json({ success: true });
+  let uuid = uuidv4();
+
+  let formData = {
+    id: uuid,
+    title: listTitle,
+    isAddCard: false,
+    cardList: []
+  }
+
+  Lists.push(formData);
+  
+  return response.json({ 
+    success: true,
+    status: 201,
+    message: "new List created succesfully.",
+    data: formData
+  });
 });
+
 
 //add a card
 app.post("/create_card", (request, response) => {
